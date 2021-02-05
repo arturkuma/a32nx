@@ -38,7 +38,7 @@ function Button({ text, type = BUTTON_TYPE.BLUE, onClick, className, ...props }:
                     'bg-green-500': type === BUTTON_TYPE.GREEN,
                     'bg-red-500': type === BUTTON_TYPE.RED
                 },
-                "font-medium py-2 px-4 text-white flex items-center justify-center rounded-lg focus:outline-none",
+                "font-medium text-lg py-2 px-4 text-white flex items-center justify-center rounded-lg focus:outline-none",
                 className
             ])}
             {...props}

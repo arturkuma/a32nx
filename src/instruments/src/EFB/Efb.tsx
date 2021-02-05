@@ -18,6 +18,9 @@
 
 import React from "react";
 
+import { Provider } from 'react-redux';
+import store from './Store';
+
 import { getSimbriefData, IFuel, IWeights } from './SimbriefApi';
 import StatusBar from "./StatusBar/StatusBar";
 import ToolBar from "./ToolBar/ToolBar";
@@ -282,13 +285,15 @@ class Efb extends React.Component<EfbProps, EfbState> {
 
     render() {
         return (
-            <div className="w-full h-screen bg-blue-darker flex flex-col">
-                <StatusBar initTime={this.state.initTime} updateCurrentTime={this.updateCurrentTime} updateTimeSinceStart={this.updateTimeSinceStart} />
-                <ToolBar setPageIndex={(index) => this.setState({ currentPageIndex: index })} />
-                <div className="w-full flex-1 flex flex-col">
-                    {this.currentPage()}
+            <Provider store={store}>
+                <div className="w-full h-screen bg-blue-darker flex flex-col">
+                    <StatusBar initTime={this.state.initTime} updateCurrentTime={this.updateCurrentTime} updateTimeSinceStart={this.updateTimeSinceStart} />
+                    <ToolBar setPageIndex={(index) => this.setState({ currentPageIndex: index })} />
+                    <div className="w-full flex-1 flex flex-col">
+                        {this.currentPage()}
+                    </div>
                 </div>
-            </div>
+            </Provider>
         );
     }
 }

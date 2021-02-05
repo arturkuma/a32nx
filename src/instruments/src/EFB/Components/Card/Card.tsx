@@ -18,10 +18,14 @@
 
 import React from "react";
 
+type props = {
+    title?: string
+};
+
 function Card({title, children, ...props}) {
     return (
         <div {...props}>
-            <h1 className="text-white font-medium mb-4 text-2xl">{title}</h1>
+            {!!title && <h1 className="text-white font-medium mb-4 text-2xl">{title}</h1>}
 
             <div className="bg-gray-800 rounded-xl p-6 text-white shadow-lg">
                 {children}

@@ -16,17 +16,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import React from "react";
+import GroundSpeed from "./GroundSpeed/GroundSpeed";
+import Data from "./Data/Data";
+import Result from "./Result/Result";
 
-import { todCalculatorReducer } from './reducer/tod-calculator.reducer';
+function TODCalculator() {
+    return (
+        <div className="flex p-6 w-full">
+            <GroundSpeed className={'w-4/12 mr-4'} />
 
-export const TOD_CALCULATOR_REDUCER = 'todCalculatorReducer';
+            <Data className="w-3/12" />
 
-export default createStore(
-    combineReducers({
-        [TOD_CALCULATOR_REDUCER]: todCalculatorReducer
-    }),
-    composeWithDevTools(applyMiddleware(thunk))
-);
+            <Result className="w-5/12 ml-4" />
+        </div>
+    );
+}
+
+export default TODCalculator;
