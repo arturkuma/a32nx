@@ -42,6 +42,7 @@ class ToolBar extends React.Component<ToolbarProps, ToolbarState> {
       'Performance',
       'Company',
       'Ground',
+      'Tools',
     ];
 
     state: ToolbarState = {
@@ -63,7 +64,7 @@ class ToolBar extends React.Component<ToolbarProps, ToolbarState> {
                     <Navbar tabs={this.tabs} onSelected={index => this.handleClick(index)} />
                     <div className="ml-auto flex items-center text-white">
                         <div>
-                            <a onClick={() => this.handleClick(6)}>
+                            <a onClick={() => this.handleClick(7)}>
                                 <IconSettings className="hover:text-blue-light" size={30} stroke={1.5} strokeLinejoin="miter"/>
                             </a>
                         </div>

@@ -29,6 +29,7 @@ import Dispatch from "./Dispatch/Dispatch";
 import Ground from './Ground/Ground';
 import Company from "./Company/Company";
 import Settings from "./Settings/Settings";
+import Tools from "./Tools/Tools";
 
 type EfbProps = {
     currentFlight: string
@@ -261,6 +262,8 @@ class Efb extends React.Component<EfbProps, EfbState> {
             case 5:
                 return <Ground />;
             case 6:
+                return <Tools />;
+            case 7:
                 return <Settings />;
             default:
                 return <Dashboard

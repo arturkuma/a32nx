@@ -59,7 +59,7 @@ function GroundSpeed({groundSpeed, addTodGroundSpeed, removeTodGroundSpeed, setT
                     <Button text={'Remove last'} type={BUTTON_TYPE.RED} onClick={() => removeTodGroundSpeed(groundSpeed.length - 1)} />
                 )}
 
-                {groundSpeed.length < 4 && (
+                {groundSpeed.length < 6 && (
                     <Button className={'ml-4'} text={'Add'} type={BUTTON_TYPE.GREEN} onClick={() => addTodGroundSpeed({ from: undefined, groundSpeed: undefined })} />
                 )}
             </div>
