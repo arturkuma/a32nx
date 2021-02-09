@@ -21,7 +21,7 @@ import GroundSpeed from "./GroundSpeed/GroundSpeed";
 import Data from "./Data/Data";
 import Result from "./Result/Result";
 
-function TODCalculator() {
+const TODCalculator = () => {
     return (
         <div className="flex p-6 w-full">
             <GroundSpeed className={'w-4/12 mr-4'} />
@@ -31,6 +31,6 @@ function TODCalculator() {
             <Result className="w-5/12 ml-4" />
         </div>
     );
-}
+};
 
 export default TODCalculator;

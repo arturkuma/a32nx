@@ -26,7 +26,7 @@ const tabs = [
     {name: 'TOD Calculator', renderComponent: () => <TODCalculator />}
 ];
 
-function Tools() {
+const Tools = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
@@ -37,6 +37,6 @@ function Tools() {
             </div>
         </div>
     );
-}
+};
 
 export default Tools;

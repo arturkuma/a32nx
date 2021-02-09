@@ -26,7 +26,7 @@ import {addTodGroundSpeed, removeTodGroundSpeed, setTodGroundSpeed} from "../../
 import './GroundSpeed.scss'
 import Button, {BUTTON_TYPE} from "../../Components/Button/Button";
 
-function GroundSpeed({groundSpeed, addTodGroundSpeed, removeTodGroundSpeed, setTodGroundSpeed, ...props}) {
+const GroundSpeed = ({groundSpeed, addTodGroundSpeed, removeTodGroundSpeed, setTodGroundSpeed, ...props}) => {
     return (
         <Card {...props} title={'Ground Speed'}>
             <div className={'ground-speed-container mb-4'}>
@@ -65,7 +65,7 @@ function GroundSpeed({groundSpeed, addTodGroundSpeed, removeTodGroundSpeed, setT
             </div>
         </Card>
     );
-}
+};
 
 export default connect(
     ({ [TOD_CALCULATOR_REDUCER]: { groundSpeed } }) => ({ groundSpeed }),

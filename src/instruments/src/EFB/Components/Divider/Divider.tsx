@@ -21,8 +21,8 @@ import classNames from 'classnames';
 
 import './Divider.scss'
 
-function Divider({className, ...props}) {
+const Divider = ({className, ...props}) => {
     return <div className={classNames(['divider', className])} {...props} />;
-}
+};
 
 export default Divider

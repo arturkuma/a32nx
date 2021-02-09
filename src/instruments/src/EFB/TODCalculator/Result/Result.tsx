@@ -26,7 +26,7 @@ import Card from "../../Components/Card/Card";
 import {TOD_CALCULATION_TYPE} from '../../Enum/TODCalculationType.enum';
 import {isNil} from 'lodash';
 
-function Result({currentAltitude, targetAltitude, calculation, groundSpeed, ...props}) {
+const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...props}) => {
     const todCalculator = new TODCalculator(currentAltitude, targetAltitude, groundSpeed);
 
     if(isNil(calculation.type)) {
@@ -62,7 +62,7 @@ function Result({currentAltitude, targetAltitude, calculation, groundSpeed, ...p
     }
 
     return null;
-}
+};
 
 export default connect(
     ({ [TOD_CALCULATOR_REDUCER]: { currentAltitude, targetAltitude, calculation, groundSpeed } }) => ({ currentAltitude, targetAltitude, calculation, groundSpeed }),

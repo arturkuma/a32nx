@@ -25,13 +25,13 @@ import {TOD_CALCULATOR_REDUCER} from "../../Store";
 import {setTodData} from "../../Store/action-creator/tod-calculator";
 import {TOD_CALCULATION_TYPE} from "../../Enum/TODCalculationType.enum";
 
-function Data({
+const Data = ({
     currentAltitude,
     targetAltitude,
     calculation: { type: calculationType, input: calculationInput },
     setTodData,
     ...props
-}) {
+}) => {
     const calculationTypes = [
         {label: 'Distance', rightLabel: 'NM', type: TOD_CALCULATION_TYPE.DISTANCE},
         {label: 'Vertical speed', rightLabel: 'FT/s', type: TOD_CALCULATION_TYPE.VERTICAL_SPEED}
@@ -70,7 +70,7 @@ function Data({
             ))}
         </Card>
     );
-}
+};
 
 export default connect(
     ({ [TOD_CALCULATOR_REDUCER]: { currentAltitude, targetAltitude, calculation } }) => ({ currentAltitude, targetAltitude, calculation }),

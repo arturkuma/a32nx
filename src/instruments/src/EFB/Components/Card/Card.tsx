@@ -22,7 +22,7 @@ type props = {
     title?: string
 };
 
-function Card({title, children, ...props}) {
+const Card = ({title, children, ...props}) => {
     return (
         <div {...props}>
             {!!title && <h1 className="text-white font-medium mb-4 text-2xl">{title}</h1>}
@@ -32,6 +32,6 @@ function Card({title, children, ...props}) {
             </div>
         </div>
     );
-}
+};
 
 export default Card;

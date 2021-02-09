@@ -28,7 +28,7 @@ type props = {
     className?: any
 };
 
-function Button({ text, type = BUTTON_TYPE.BLUE, onClick, className, ...props }: props) {
+const Button = ({ text, type = BUTTON_TYPE.BLUE, onClick, className, ...props }: props) => {
     return (
         <button
             onClick={onClick}
@@ -46,6 +46,6 @@ function Button({ text, type = BUTTON_TYPE.BLUE, onClick, className, ...props }:
             {text}
         </button>
     );
-}
+};
 
 export default Button;
