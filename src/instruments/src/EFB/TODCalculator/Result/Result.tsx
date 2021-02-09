@@ -21,10 +21,9 @@ import { connect } from 'react-redux';
 import {TOD_CALCULATOR_REDUCER} from "../../Store";
 import {setTodData} from "../../Store/action-creator/tod-calculator";
 import TODCalculator from "../../Service/TODCalculator";
-import {round} from 'lodash';
+import {round, isNil} from 'lodash';
 import Card from "../../Components/Card/Card";
 import {TOD_CALCULATION_TYPE} from '../../Enum/TODCalculationType.enum';
-import {isNil} from 'lodash';
 
 const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...props}) => {
     const todCalculator = new TODCalculator(currentAltitude, targetAltitude, groundSpeed);
@@ -34,7 +33,12 @@ const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...p
     }
 
     const {headerText, footerText, calculate, unit} = ({
-        [TOD_CALCULATION_TYPE.DISTANCE]: {headerText: 'Desired vertical speed', footerText: '', unit: 'FT/s', calculate: () => todCalculator.calculateVS(calculation.input)},
+        [TOD_CALCULATION_TYPE.DISTANCE]: {
+            headerText: 'Desired vertical speed',
+            footerText: '',
+            unit: 'FT/s',
+            calculate: () => todCalculator.calculateVS(calculation.input)
+        },
         [TOD_CALCULATION_TYPE.VERTICAL_SPEED]: {
             headerText: `Start your ${targetAltitude > currentAltitude ? 'ascend' : 'descent'}`,
             footerText: 'before target',

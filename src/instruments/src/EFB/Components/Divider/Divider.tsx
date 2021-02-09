@@ -19,10 +19,8 @@
 import React from "react";
 import classNames from 'classnames';
 
-import './Divider.scss'
-
 const Divider = ({className, ...props}) => {
-    return <div className={classNames(['divider', className])} {...props} />;
+    return <div className={classNames(['bg-white h-0.5', className])} {...props} />;
 };
 
 export default Divider
