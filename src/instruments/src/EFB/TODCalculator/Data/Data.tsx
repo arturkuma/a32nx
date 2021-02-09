@@ -33,7 +33,7 @@ function Data({
     ...props
 }) {
     const calculationTypes = [
-        {label: 'Distance', rightLabel: 'M', type: TOD_CALCULATION_TYPE.DISTANCE},
+        {label: 'Distance', rightLabel: 'NM', type: TOD_CALCULATION_TYPE.DISTANCE},
         {label: 'Vertical speed', rightLabel: 'FT/s', type: TOD_CALCULATION_TYPE.VERTICAL_SPEED}
     ];
 

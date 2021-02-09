@@ -36,9 +36,9 @@ function Result({currentAltitude, targetAltitude, calculation, groundSpeed, ...p
     const {headerText, footerText, calculate, unit} = ({
         [TOD_CALCULATION_TYPE.DISTANCE]: {headerText: 'Desired vertical speed', footerText: '', unit: 'FT/s', calculate: () => todCalculator.calculateVS(calculation.input)},
         [TOD_CALCULATION_TYPE.VERTICAL_SPEED]: {
-            headerText: `Start your ${targetAltitude > currentAltitude ? 'ascend' : 'descend'}`,
+            headerText: `Start your ${targetAltitude > currentAltitude ? 'ascend' : 'descent'}`,
             footerText: 'before target',
-            unit: 'M',
+            unit: 'NM',
             calculate: () => todCalculator.calculateDistance(Math.abs(calculation.input))
         },
     }[calculation.type]);
