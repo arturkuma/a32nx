@@ -43,7 +43,7 @@ const Data = ({
                 label={'Current altitude'}
                 type={'number'}
                 className={'dark-option mb-4'}
-                rightComponent={<span className={'text-lg'}>ft</span>}
+                rightComponent={<span className={'text-2xl'}>ft</span>}
                 value={currentAltitude}
                 onChange={(currentAltitude) => setTodData({ currentAltitude })}
             />
@@ -52,7 +52,7 @@ const Data = ({
                 label={'Target altitude'}
                 type={'number'}
                 className={'dark-option mb-6'}
-                rightComponent={<span className={'text-lg'}>ft</span>}
+                rightComponent={<span className={'text-2xl'}>ft</span>}
                 value={targetAltitude}
                 onChange={(targetAltitude) => setTodData({ targetAltitude })}
             />
@@ -64,7 +64,7 @@ const Data = ({
                     label={label}
                     type={'number'}
                     className={'dark-option mb-4'}
-                    rightComponent={<span className={'text-lg'}>{rightLabel}</span>}
+                    rightComponent={<span className={'text-2xl'}>{rightLabel}</span>}
                     onChange={(input) => setTodData({ calculation: {input, type: input !== '' ? type : undefined }})}
                 />
             ))}

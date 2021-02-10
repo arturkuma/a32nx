@@ -37,7 +37,7 @@ const GroundSpeed = ({groundSpeed, addTodGroundSpeed, removeTodGroundSpeed, setT
                             type={'number'}
                             className={'dark-option w-6/12 mr-4'}
                             value={from}
-                            rightComponent={<span className={'text-lg'}>ft</span>}
+                            rightComponent={<span className={'text-2xl'}>ft</span>}
                             disabled={key === 0}
                             onChange={(from) => setTodGroundSpeed(key, { from })}
                         />
@@ -46,7 +46,7 @@ const GroundSpeed = ({groundSpeed, addTodGroundSpeed, removeTodGroundSpeed, setT
                             label={'GS'}
                             type={'number'}
                             className={'dark-option w-6/12'}
-                            rightComponent={<span className={'text-lg'}>kt</span>}
+                            rightComponent={<span className={'text-2xl'}>kt</span>}
                             value={groundSpeed}
                             onChange={(groundSpeed) => setTodGroundSpeed(key, { groundSpeed })}
                         />
