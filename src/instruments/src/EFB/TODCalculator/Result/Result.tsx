@@ -21,12 +21,12 @@ import { connect } from 'react-redux';
 import {TOD_CALCULATOR_REDUCER} from "../../Store";
 import {setTodData} from "../../Store/action-creator/tod-calculator";
 import TODCalculator from "../../Service/TODCalculator";
-import {round, isNil} from 'lodash';
+import {round, isNil, toNumber} from 'lodash';
 import Card from "../../Components/Card/Card";
 import {TOD_CALCULATION_TYPE} from '../../Enum/TODCalculationType.enum';
 
 const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...props}) => {
-    const todCalculator = new TODCalculator(currentAltitude, targetAltitude, groundSpeed);
+    const todCalculator = new TODCalculator(toNumber(currentAltitude), toNumber(targetAltitude), groundSpeed);
 
     if(isNil(calculation.type)) {
         return null;

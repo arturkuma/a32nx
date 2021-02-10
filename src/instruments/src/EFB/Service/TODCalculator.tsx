@@ -72,7 +72,9 @@ export default class TODCalculator {
         return ranges;
     }
 
-    private filterGroundSpeedRanges(from: number, to: number, groundSpeeds: groundSpeedRange[]) {
+    private filterGroundSpeedRanges(from: number, to: number, groundSpeedsArg: groundSpeedRange[]) {
+        const groundSpeeds = [...groundSpeedsArg];
+
         const bottom = min([from, to]);
         const top = max([from, to]);
 
