@@ -34,7 +34,7 @@ const Data = ({
 }) => {
     const calculationTypes = [
         {label: 'Distance', rightLabel: 'NM', type: TOD_CALCULATION_TYPE.DISTANCE},
-        {label: 'Vertical speed', rightLabel: 'FT/s', type: TOD_CALCULATION_TYPE.VERTICAL_SPEED}
+        {label: 'Vertical speed', rightLabel: 'ft/min', type: TOD_CALCULATION_TYPE.VERTICAL_SPEED}
     ];
 
     return (
@@ -43,7 +43,7 @@ const Data = ({
                 label={'Current altitude'}
                 type={'number'}
                 className={'dark-option mb-4'}
-                rightComponent={<span className={'text-lg'}>FT</span>}
+                rightComponent={<span className={'text-lg'}>ft</span>}
                 value={currentAltitude}
                 onChange={(currentAltitude) => setTodData({ currentAltitude })}
             />
@@ -52,7 +52,7 @@ const Data = ({
                 label={'Target altitude'}
                 type={'number'}
                 className={'dark-option mb-6'}
-                rightComponent={<span className={'text-lg'}>FT</span>}
+                rightComponent={<span className={'text-lg'}>ft</span>}
                 value={targetAltitude}
                 onChange={(targetAltitude) => setTodData({ targetAltitude })}
             />
