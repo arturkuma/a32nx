@@ -40,7 +40,7 @@ const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...p
             calculate: () => todCalculator.calculateVS(calculation.input)
         },
         [TOD_CALCULATION_TYPE.VERTICAL_SPEED]: {
-            headerText: `Start your ${targetAltitude > currentAltitude ? 'ascend' : 'descent'}`,
+            headerText: `Start your ${targetAltitude > currentAltitude ? 'ascend' : 'descent'} about`,
             footerText: 'before target',
             unit: 'NM',
             calculate: () => todCalculator.calculateDistance(Math.abs(calculation.input))
