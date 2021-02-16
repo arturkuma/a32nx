@@ -16,4 +16,4 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-export enum TOD_CALCULATION_TYPE {DISTANCE, VERTICAL_SPEED, FLIGHT_PATH_ANGLE}
+export enum TOD_GROUND_SPEED_MODE {MANUAL, AUTO}
