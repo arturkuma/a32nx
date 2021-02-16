@@ -17,17 +17,19 @@
  */
 
 import React from "react";
+import classNames from 'classnames';
 
 type props = {
-    title?: string
+    title?: string,
+    childrenContainerClassName?: string
 };
 
-const Card = ({title, children, ...props}) => {
+const Card = ({title, childrenContainerClassName = '', children, ...props}) => {
     return (
         <div {...props}>
             {!!title && <h1 className="text-white font-medium mb-4 text-2xl">{title}</h1>}
 
-            <div className="bg-gray-800 rounded-xl p-6 text-white shadow-lg">
+            <div className={classNames(['bg-gray-800 rounded-xl p-6 text-white shadow-lg', childrenContainerClassName])}>
                 {children}
             </div>
         </div>

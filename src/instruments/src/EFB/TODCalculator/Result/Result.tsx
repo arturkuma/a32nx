@@ -65,7 +65,8 @@ const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...p
         ],
     }[calculation.type]);
 
-    const inputDataValid = (targetAltitude < currentAltitude) && calculation.input !== '';
+    const inputDataValid = targetAltitude !== '' && currentAltitude !== '' && (targetAltitude < currentAltitude) && calculation.input !== '';
+
     const calculationValid = (value) => !isNaN(value) && isFinite(value);
 
     const calculations = results.map(({calculate}) => calculate());
@@ -73,7 +74,7 @@ const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...p
 
     if(inputDataValid && validCalculations.length > 0) {
         return (
-            <Card {...props} title={'Result'}>
+            <Card title={'Result'} childrenContainerClassName={'flex-1 flex flex-col justify-center'} {...props}>
                 {results.map(({headerText, footerText, calculate, unit}) => {
                     const calculation = calculate();
 

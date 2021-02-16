@@ -24,11 +24,11 @@ import Result from "./Result/Result";
 const TODCalculator = () => {
     return (
         <div className="flex p-6 w-full">
-            <GroundSpeed className={'w-4/12 mr-4'} />
+            <GroundSpeed className={'w-4/12 mr-4 flex flex-col'} />
 
-            <Data className={'w-4/12 mr-4'} />
+            <Data className={'w-4/12 mr-4 flex flex-col'} />
 
-            <Result className={'w-4/12'} />
+            <Result className={'w-4/12 flex flex-col'} />
         </div>
     );
 };

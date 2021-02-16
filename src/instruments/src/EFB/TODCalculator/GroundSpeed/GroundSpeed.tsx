@@ -25,14 +25,20 @@ import GroundSpeedAuto from "./GroundSpeedAuto/GroundSpeedAuto";
 import GroundSpeedManual from "./GroundSpeedManual/GroundSpeedManual";
 
 const GroundSpeed = ({groundSpeedMode, ...props}) => {
-    const renderGroundSpeedComponent = ({
-        [TOD_GROUND_SPEED_MODE.AUTO]: () => <GroundSpeedAuto />,
-        [TOD_GROUND_SPEED_MODE.MANUAL]: () => <GroundSpeedManual />,
+    const groundSpeedComponent = ({
+        [TOD_GROUND_SPEED_MODE.AUTO]: {
+            render: () => <GroundSpeedAuto />,
+            childrenContainerClassName: 'flex-1 flex flex-col justify-center'
+        },
+        [TOD_GROUND_SPEED_MODE.MANUAL]: {
+            render: () => <GroundSpeedManual />,
+            childrenContainerClassName: 'flex-1 flex flex-col justify-start'
+        },
     })[groundSpeedMode];
 
     return (
-        <Card {...props} title={'Ground Speed'}>
-            {renderGroundSpeedComponent()}
+        <Card title={'Ground Speed'} childrenContainerClassName={groundSpeedComponent.childrenContainerClassName} {...props}>
+            {groundSpeedComponent.render()}
         </Card>
     );
 };

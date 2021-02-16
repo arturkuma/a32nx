@@ -66,7 +66,7 @@ const Data = ({
     ];
 
     return (
-        <Card {...props} title={'Data'}>
+        <Card title={'Data'} childrenContainerClassName={'flex-1 flex flex-col justify-start'} {...props}>
             <Input
                 label={'Current altitude'}
                 type={'number'}
@@ -101,9 +101,23 @@ const Data = ({
                     <Input
                         label={label}
                         type={'number'}
-                        className={'dark-option mb-2'}
-                        rightComponent={<span className={'text-2xl'}>{rightLabel}</span>}
+                        className={'dark-option mb-2 pr-1'}
+                        rightComponent={(
+                            <div className={'flex items-center justify-center'}>
+                                <span className={'text-2xl pr-3'}>{rightLabel}</span>
+
+                                {!!calculationInput && (
+                                    <Button
+                                        className={'ml-1'}
+                                        text={'X'}
+                                        type={BUTTON_TYPE.RED_OUTLINE}
+                                        onClick={() => setTodData({ calculation: {input: '', type: undefined }})}
+                                    />
+                                )}
+                            </div>
+                        )}
                         onChange={(input) => setTodData({ calculation: {input, type: input !== '' ? type : undefined }})}
+                        value={calculationInput}
                     />
 
                     <span className={'w-full inline-block text-center mb-2 last:hidden'}>OR</span>
