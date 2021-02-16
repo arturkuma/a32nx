@@ -81,7 +81,7 @@ export default class TODCalculator {
             const rangeStart = get(groundSpeeds, [i, 'from']);
             const rangeEnd = get(groundSpeeds, [i + 1, 'from'], 1000000); // Unrealistic default value to avoid many IFs later
 
-            if(groundSpeed !== '' && rangeStart !== '') {
+            if(groundSpeed !== '' && groundSpeed != 0 && rangeStart !== '') {
                 ranges.push({groundSpeed, range: [rangeStart, rangeEnd]});
             }
         }

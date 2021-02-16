@@ -39,7 +39,7 @@ const GroundSpeedManual = ({groundSpeed, groundSpeedMode, addTodGroundSpeed, rem
                 {groundSpeed.map(({ from, groundSpeed }, key) => (
                     <div className={'flex w-full mb-4 bg-blue-darker rounded-lg'}>
                         <Input
-                            label={'Alt'}
+                            label={`Min. Alt ${key + 1}`}
                             type={'number'}
                             className={'dark-option w-6/12 mr-4'}
                             value={from}
@@ -72,8 +72,8 @@ const GroundSpeedManual = ({groundSpeed, groundSpeedMode, addTodGroundSpeed, rem
 
             <Divider className={'mb-4'} />
 
-            <div className={'flex flex-row justify-end'}>
-                <Button text={'Auto update'} type={BUTTON_TYPE.BLUE_OUTLINE} onClick={() => setTodGroundSpeedMode(TOD_GROUND_SPEED_MODE.AUTO)} />
+            <div className={'flex flex-row justify-center'}>
+                <Button text={'SYNC'} type={BUTTON_TYPE.BLUE_OUTLINE} onClick={() => setTodGroundSpeedMode(TOD_GROUND_SPEED_MODE.AUTO)} />
             </div>
         </div>
     );

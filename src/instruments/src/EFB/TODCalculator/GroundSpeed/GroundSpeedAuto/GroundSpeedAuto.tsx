@@ -42,7 +42,7 @@ const GroundSpeedAuto = ({groundSpeedData, currentAltitude, setTodData, setTodGr
             console.log('Using mock data for current GS, watch out');
         }
 
-        if(currentAltitude > 10000) {
+        if(currentAltitude > 10000 && groundSpeed >= 250) {
             setTodGroundSpeed(0, {from: 0, groundSpeed: 250});
             setTodGroundSpeed(1, {from: 10000, groundSpeed});
         } else{

@@ -18,7 +18,8 @@
 
 import typeToReducer from 'type-to-reducer';
 import {
-    ADD_TOD_GROUND_SPEED, CLEAR_TOD_GROUND_SPEED,
+    ADD_TOD_GROUND_SPEED,
+    CLEAR_TOD_GROUND_SPEED,
     REMOVE_TOD_GROUND_SPEED,
     SET_TOD_DATA,
     SET_TOD_GROUND_SPEED,
@@ -44,8 +45,8 @@ const initialState: state = {
     currentAltitude: undefined,
     targetAltitude: undefined,
     calculation: {
-        input: undefined,
-        type: undefined
+        input: -3,
+        type: TOD_CALCULATION_TYPE.FLIGHT_PATH_ANGLE
     }
 };
 
