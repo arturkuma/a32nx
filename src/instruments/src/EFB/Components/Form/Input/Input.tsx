@@ -63,7 +63,7 @@ const Input = ({
         onChange(propsValue);
     }, [propsValue]);
 
-    const emptyValue = value == '' || (isNumber(value) && isNaN(value));
+    const emptyValue = value === '' || (isNumber(value) && isNaN(value));
 
     return (
         <div className={classNames('default-input-container', { 'focus-active': focusActive, disabled }, className)}>
