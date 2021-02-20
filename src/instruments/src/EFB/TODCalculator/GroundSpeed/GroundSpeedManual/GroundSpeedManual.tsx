@@ -30,7 +30,7 @@ import {
 import './GroundSpeedManual.scss'
 import Button, {BUTTON_TYPE} from "../../../Components/Button/Button";
 import Divider from "../../../Components/Divider/Divider";
-import {TOD_GROUND_SPEED_MODE} from "../../../Enum/TODGroundSpeedMode.enum";
+import {TOD_INPUT_MODE} from "../../../Enum/TODInputMode.enum";
 
 const GroundSpeedManual = ({groundSpeed, groundSpeedMode, addTodGroundSpeed, removeTodGroundSpeed, setTodGroundSpeed, setTodGroundSpeedMode, ...props}) => {
     return (
@@ -73,7 +73,7 @@ const GroundSpeedManual = ({groundSpeed, groundSpeedMode, addTodGroundSpeed, rem
             <Divider className={'mb-4'} />
 
             <div className={'flex flex-row justify-center'}>
-                <Button text={'SYNC'} type={BUTTON_TYPE.BLUE_OUTLINE} onClick={() => setTodGroundSpeedMode(TOD_GROUND_SPEED_MODE.AUTO)} />
+                <Button text={'SYNC'} type={BUTTON_TYPE.BLUE_OUTLINE} onClick={() => setTodGroundSpeedMode(TOD_INPUT_MODE.AUTO)} />
             </div>
         </div>
     );

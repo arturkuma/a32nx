@@ -28,7 +28,7 @@ import {
 } from "../../../Store/action-creator/tod-calculator";
 import './GroundSpeedAuto.scss'
 import Button, {BUTTON_TYPE} from "../../../Components/Button/Button";
-import {TOD_GROUND_SPEED_MODE} from "../../../Enum/TODGroundSpeedMode.enum";
+import {TOD_INPUT_MODE} from "../../../Enum/TODInputMode.enum";
 import {useSimVar} from "../../../../Common/simVars";
 
 const GroundSpeedAuto = ({groundSpeedData, currentAltitude, setTodData, setTodGroundSpeed, removeTodGroundSpeed, setTodGroundSpeedMode, ...props}) => {
@@ -62,7 +62,7 @@ const GroundSpeedAuto = ({groundSpeedData, currentAltitude, setTodData, setTodGr
 
                 <span className={'font-medium mb-4 text-5xl'}>{groundSpeed} kt</span>
 
-                <Button text={'Manual input'} onClick={() => setTodGroundSpeedMode(TOD_GROUND_SPEED_MODE.MANUAL)} type={BUTTON_TYPE.BLUE} />
+                <Button text={'Manual input'} onClick={() => setTodGroundSpeedMode(TOD_INPUT_MODE.MANUAL)} type={BUTTON_TYPE.BLUE} />
             </div>
         </div>
     );

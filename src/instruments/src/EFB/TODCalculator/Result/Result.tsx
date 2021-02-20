@@ -39,7 +39,7 @@ const Result = ({currentAltitude, targetAltitude, calculation, groundSpeed, ...p
                 headerText: 'Desired vertical speed',
                 footerText: '',
                 unit: 'ft/min',
-                calculate: () => -round(todCalculator.calculateVS(calculation.input))
+                calculate: () => round(todCalculator.calculateVS(calculation.input))
             },
             {
                 headerText: 'Desired descend angle',
