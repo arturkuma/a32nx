@@ -19,20 +19,24 @@
 import React from "react";
 import { IconBatteryCharging } from '@tabler/icons';
 import { IconWifi } from '@tabler/icons';
+import { connect } from 'react-redux';
+import { efbClearState } from "../Store/action-creator/efb";
 
 declare const SimVar;
 
-type TimeProps = {
+type Props = {
     initTime: Date,
     updateTimeSinceStart: Function,
     updateCurrentTime: Function,
+    efbClearState: () => {}
 }
+
 type TimeState = {
     currentTime: Date,
     timeSinceStart: string
 }
 
-export default class StatusBar extends React.Component<TimeProps, any> {
+class StatusBar extends React.Component<Props, any> {
     state: TimeState = {
         currentTime: this.props.initTime,
         timeSinceStart: "",
@@ -67,6 +71,8 @@ export default class StatusBar extends React.Component<TimeProps, any> {
     }
 
     render() {
+        const { efbClearState } = this.props;
+
         return (
             <div className="flex items-center justify-between px-6 py-1 text-white font-medium leading-none">
                 <div>flyPad</div>
@@ -75,12 +81,27 @@ export default class StatusBar extends React.Component<TimeProps, any> {
                     <IconWifi className="mr-2" size={22} stroke={1.5} strokeLinejoin="miter" />
                     100%
                     {/* TODO find a way to use `setSimVar` here */}
-                    <IconBatteryCharging onClick={() => SimVar.SetSimVarValue('L:A32NX_EFB_TURNED_ON', 'number', 0)} className="ml-2" color="yellow" size={25} stroke={1.5} strokeLinejoin="miter" />
+                    <IconBatteryCharging
+                        onClick={() => {
+                            efbClearState();
+                            SimVar.SetSimVarValue('L:A32NX_EFB_TURNED_ON', 'number', 0);
+                        }}
+                        className="ml-2"
+                        color="yellow"
+                        size={25}
+                        stroke={1.5}
+                        strokeLinejoin="miter"
+                    />
                 </div>
             </div>
         );
     }
 }
+
+export default connect(
+    () => {},
+    { efbClearState }
+)(StatusBar);;
 
 export function formatTime(numbers: number[]) {
     if (numbers.length === 2) {
