@@ -21,6 +21,7 @@ import { CurrentFlight, Map } from '@flybywiresim/map';
 import FlightWidget from './Widgets/FlightWidget';
 import WeatherWidget from './Widgets/WeatherWidget';
 import { useSimVar } from '../../Common/simVars';
+import FlightReport from "../FlightReport/FlightReport";
 
 type DashboardProps = {
     currentFlight: string,
@@ -72,6 +73,8 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
         latitude,
         longitude,
     });
+
+    return <FlightReport />;
 
     return (
         <div className="flex p-6 w-full">
