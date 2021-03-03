@@ -33,7 +33,6 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
 module.exports = {
     input: `${__dirname}/index-web.tsx`,
-    inlineDynamicImports: true,
     plugins: [
         image(),
         nodeResolve({ extensions }),
