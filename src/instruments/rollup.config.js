@@ -27,6 +27,7 @@ const commonjs = require('@rollup/plugin-commonjs');
 const replace = require('@rollup/plugin-replace');
 const postcss = require('rollup-plugin-postcss');
 const tailwindcss = require('tailwindcss');
+const json = require('@rollup/plugin-json');
 
 const instrumentTemplate = require('@flybywiresim/rollup-plugin-msfs');
 const ecamPageTemplate = require('./ecam-page-template/rollup.js');
@@ -92,6 +93,9 @@ module.exports = getInstrumentsToCompile()
                 format: 'iife',
             },
             plugins: [
+                json({
+                    compact: true
+                }),
                 image(),
                 nodeResolve({ extensions }),
                 commonjs({ include: /node_modules/ }),
