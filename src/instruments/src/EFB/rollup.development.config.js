@@ -28,7 +28,6 @@ const tailwindcss = require('tailwindcss');
 const copy = require('rollup-plugin-copy');
 const serve = require('rollup-plugin-serve');
 const livereload = require('rollup-plugin-livereload');
-const json = require('@rollup/plugin-json');
 
 const extensions = ['.js', '.jsx', '.ts', '.tsx'];
 
@@ -36,9 +35,6 @@ module.exports = {
     input: `${__dirname}/index-web.tsx`,
     inlineDynamicImports: true,
     plugins: [
-        json({
-            compact: true
-        }),
         image(),
         nodeResolve({ extensions }),
         commonjs({ include: /node_modules/ }),
