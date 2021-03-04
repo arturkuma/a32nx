@@ -18,25 +18,10 @@
 
 import React, {useRef, useState} from 'react';
 import {CurrentFlight, Map} from "@flybywiresim/map";
-// import { Document, Page, Text, View, StyleSheet, PDFViewer } from '@react-pdf/renderer';
-import html2PDF from 'jspdf-html2canvas';
-
-// const styles = StyleSheet.create({
-//     page: {
-//         flexDirection: 'row',
-//         backgroundColor: '#E4E4E4'
-//     },
-//     section: {
-//         margin: 10,
-//         padding: 10,
-//         flexGrow: 1
-//     }
-// });
-
 import { jsPDF } from "jspdf";
+import domtoimage from 'dom-to-image';
+
 import Button from "../Components/Button/Button";
-
-
 
 const handleGettingCurrentFlightData = (): CurrentFlight => ({
     flightNumber: 'elo',
@@ -49,89 +34,40 @@ const handleGettingCurrentFlightData = (): CurrentFlight => ({
     longitude: 0,
 });
 
-const defaultOptions = {
-    jsPDF: {
-        unit: 'px',
-        format: 'a4',
-    },
-    html2canvas: {
-        imageTimeout: 15000,
-        logging: true,
-        useCORS: true
-    },
-    imageType: 'image/png',
-    imageQuality: 1,
-    margin: {
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-    },
-    output: 'jspdf-generate.pdf',
-    init: function() {},
-    success: function(pdf) {
-        pdf.save(this.output);
-    }
-}
 
 const FlightReport = () => {
     const mapContainer = useRef();
-    const [generated, setGenmerated] = useState(false)
-
-    if(mapContainer) {
-        // html2PDF(mapContainer.current, defaultOptions);
-        // setGenmerated(true)
-    }
-
-    // const MyDocument = () => (
-    //     <Document>
-    //         <Page size="A4" style={styles.page}>
-    //             <View style={styles.section}>
-    //                 <Text>Section #1</Text>
-    //             </View>
-    //             <View style={styles.section}>
-    //                 <Text>Section #2</Text>
-    //             </View>
-    //         </Page>
-    //     </Document>
-    // );
-
-    // Default export is a4 paper, portrait, using millimeters for units
-    // const doc = new jsPDF();
-    //
-    // doc.text("Hello world!", 10, 10);
-    //
-    // const elementHandler = {
-    //     '#ignorePDF': function (element, renderer) {
-    //         return true;
-    //     }
-    // };
-    //
-    // if(mapContainer) {
-    //     doc.fromHTML(
-    //         mapContainer.current,
-    //         25,
-    //         25,
-    //         {
-    //             'width': 180, 'elementHandlers': elementHandler
-    //         });
-    //     doc.save("a4.pdf");
-    // }
 
     return (
         <div className="flex w-full h-full">
-            {/*<PDFViewer>*/}
-            {/*    <MyDocument />*/}
-            {/*</PDFViewer>*/}
+            <Button
+                onClick={() => {
+                    domtoimage.toPng(mapContainer.current)
+                        .then((url) => {
+                            const doc = new jsPDF({ unit: "px", format: 'a4' });
+                            const width = doc.internal.pageSize.getWidth();
+                            const height = doc.internal.pageSize.getHeight();
 
-            <Button onClick={() => html2PDF(mapContainer.current, defaultOptions)} text={'elo'} />
+                            doc.text("Hello world!", 10, 10);
 
-            <div>
+                            doc.addPage();
 
-            </div>
-            <div className="overflow-hidden" style={{height: '841px', width: '595px'}} ref={mapContainer}>
-                <h1>test</h1>
-                <Map currentFlight={handleGettingCurrentFlightData} disableMenu hideOthers />
+                            doc.addImage(url, 'PNG', 0, 0, width, height);
+
+                            doc.save("a4.pdf");
+
+                            // window.saveAs(blob, 'my-node.png');
+                        });
+                }}
+                text={'elo'}
+            />
+
+            <div style={{height: '0', width: 0, overflow: 'hidden'}}>
+                <div className="overflow-hidden" style={{height: `${631 * 2}px`, width: `${446 * 2}px`}} ref={mapContainer}>
+                    <Map currentFlight={handleGettingCurrentFlightData} disableMenu hideOthers zoom={7} />
+                </div>
+
+                {/*<div style={{position: 'absolute', top: 0, left: 25, height: '100%', width: '100%', backgroundColor: 'red', 'z-index': 100000}}></div>*/}
             </div>
         </div>
     );
